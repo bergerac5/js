@@ -63,9 +63,9 @@ document.querySelector('#input').addEventListener('input', function (e) {
 document.querySelector('#form').addEventListener('submit', function (e) {
     e.preventDefault()
     todos.push({
-        text: e.target.elements.text.value,
+        text: e.target.elements.add.value,
         completed: false
     })
     renderTodos(todos, filter)
-    e.target.elements.text.value = ''
+    e.target.elements.add.value = ''
 })
