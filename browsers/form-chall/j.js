@@ -29,7 +29,7 @@ const renderTodos = function (todos,filter) {
     
 
     const incompletedTodos = filteredTodos.filter(function(todo) {
-        return !todo.completed
+        return todo.completed
     })
 
     document.querySelector('#sea').innerHTML = ''
@@ -64,7 +64,7 @@ document.querySelector('#form').addEventListener('submit', function (e) {
     e.preventDefault()
     todos.push({
         text: e.target.elements.add.value,
-        completed: false
+        completed: true
     })
     renderTodos(todos, filter)
     e.target.elements.add.value = ''
