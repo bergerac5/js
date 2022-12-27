@@ -7,12 +7,13 @@ const filter = {
     completed: false
 }
 
-const todosJSON = localStorage.getItem('notes')
 
-if (notes!==null) {
-    notes=JSON.parse(todosJSON)
+
+const todosJSON=localStorage.getItem('todos')
+
+if(todosJSON !==null){
+   todos=JSON.parse(todosJSON) 
 }
-
 const renderTodos = function (todos,filter) {
     let filteredTodos = todos.filter(function (todo) {
         const searchTextMatch = todo.text.toLowerCase().includes(filter.searchText.toLowerCase())
@@ -51,6 +52,7 @@ document.querySelector('#form').addEventListener('submit', function (e) {
         text: e.target.elements.add.value,
         completed: false
     })
+    savedTodos(todos)
     renderTodos(todos, filter)
     e.target.elements.add.value = ''
 })
