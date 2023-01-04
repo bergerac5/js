@@ -32,7 +32,7 @@ const filter = {
 // localStorage.setItem('user',userJSON)
 
 const userJSON=localStorage.getItem('user')
-const user=JSON.purge(userJSON)
+const user=JSON.parse(userJSON)
 console.log(`${user.name} is ${user.age}`)
 const renderTodos = function (todos,filter) {
     let filteredTodos = todos.filter(function (todo) {

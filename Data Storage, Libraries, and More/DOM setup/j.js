@@ -18,9 +18,9 @@ document.querySelector('#form').addEventListener('submit', function (e) {
     e.preventDefault()
     todos.push({
         text: e.target.elements.add.value,
-        completed: false
+        completed: true
     })
-    
+    savedNotes(todos)
     renderTodos(todos, filter)
     e.target.elements.add.value = ''
 })

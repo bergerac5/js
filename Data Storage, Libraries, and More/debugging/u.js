@@ -21,6 +21,7 @@ const renderTodos = function (todos,filter) {
     let filteredTodos = todos.filter(function (todo) {
         const searchTextMatch = todo.text.toLowerCase().includes(filter.searchText.toLowerCase())
         const completed = !filter.completed || !todo.completed
+        debugger
         return searchTextMatch && completed
     })
 
@@ -28,7 +29,7 @@ const renderTodos = function (todos,filter) {
     const incompletedTodos = filteredTodos.filter(function(todo) {
         return !todo.completed
     })
-
+  
     document.querySelector('#sea').innerHTML = ''
     
     const summary =  document.createElement('h2')

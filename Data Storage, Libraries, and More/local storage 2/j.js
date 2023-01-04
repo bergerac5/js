@@ -52,7 +52,7 @@ document.querySelector('#form').addEventListener('submit', function (e) {
         text: e.target.elements.add.value,
         completed: false
     })
-    savedTodos(todos)
+   localStorage.setItem('todos',JSON.stringify(todos))
     renderTodos(todos, filter)
     e.target.elements.add.value = ''
 })

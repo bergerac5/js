@@ -9,11 +9,32 @@ const getSavedTodos = function (){
         return[]
     }
 }
+
+// save todos to lacalStorage
+const savedNotes=function(todos){
+    localStorage.setItem('todos',JSON.stringify(todos))
+}
+
 // generate the DOM for a todo
 const generateTodoDOM = function(todo){
-    const p =document.createElement('p')
-    p.textContent = todo.text
-    return p
+    const todoEl = document.createElement('div')
+    const checkbox = document.createElement('input')
+    const todoText = document.createElement('span')
+    const removeButton = document.createElement('button')
+
+    //setup todo checkbox
+    checkbox.setAttribute('type', 'checkbox')
+    todoEl.appendChild(checkbox)
+
+    // setup the todo text
+    todoText.textContent = todo.text
+    todoEl.appendChild(todoText)
+    
+    // setup remove button
+    removeButton.textContent = ' x'
+    todoEl.appendChild(removeButton)
+
+    return todoEl
 }
 
 // render application todos
@@ -42,7 +63,4 @@ const renderTodos = function (todos,filter) {
     })
 }
 
-// save todos to lacalStorage
-const savedNotes=function(todos){
-    localStorage.setItem('todos',JSON.stringify(todos))
-}
+
